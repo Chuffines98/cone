@@ -1,0 +1,23 @@
+
+
+{% extends 'base.html' %}
+
+{% block body %}
+
+	<h2> This is my Flask server! </h2>
+
+	<img src="{{ url_for('static', filename='images/flask.jpg') }}" />
+	
+	<form action="http://localhost:5000/" method="POST"> 
+		<p> Loan Amount: <input type="number" name="loanAmount" /></p>
+		<p> Time to Repay in Years: <input type="number" name="timeToRepay" /></p>
+		<p> Interest Rate: <input type="number" name="interestRate"	/><span>%</span></p>
+		<input type="submit" value="Submit"/> 
+	</form>  
+	
+	<!--where the results appear -->
+	{% if result %}
+	<p>The Monthly amount you pay: {{ result }}</p>
+	{% endif %}
+	
+{% endblock %}
